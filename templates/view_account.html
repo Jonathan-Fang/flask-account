@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}
+Weather API
+{% endblock %}
+{% block content %}
+<head>
+    <style>
+        p {text-align: center;}
+        button {text-align: center;}
+        div {text-align: center;}
+    </style>
+</head>
+
+<body>
+    <Title>View Account Results</Title>
+    <p>View Account Results</p>
+    <!--error-->
+    {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+    <!--flash-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <p><strong>{{ messages }}</strong></p>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {{ results }} <br>
+    {# .. <!-- commenting out jinja -->
+    <table> 
+        {% for key, value in results.items() %} <!-- i don't really understand this -->
+            <tr>
+                <th> {{key}} </th>
+                <td> {{value}} </td>
+            </tr>
+        {% endfor %}
+    </table>
+    #}
+    <a href="{{ url_for('create_account') }}">Return to Create Account</a>
+</body>
+{% endblock %}

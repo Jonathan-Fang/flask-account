@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}
+Weather API
+{% endblock %}
+{% block content %}
+<head>
+    <style>
+        p {text-align: center;}
+        button {text-align: center;}
+        div {text-align: center;}
+    </style>
+</head>
+
+<body>
+    <p>Create Account: Deliverable for Eddy, September 19, 2023</p>
+    <form method="post" action="/create_account/">
+        <p>Fill in the information below to create an account</p><br>
+        <input type="text" name="fname" placeholder="First name">
+        <input type="text" name="lname" placeholder="Last name"><br><br>
+        <input type="text" name="usrname" placeholder="Username">
+        <input type="password" name="psword" id="psword" placeholder="Password">
+        <input type="checkbox" onclick="togglePassword()">Toggle Password<br><br>
+        <input type="number" name="favnum" placeholder="Favorite Number">
+        <input type="text" name="favelement" placeholder="Favorite Element"><br><br>
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="currentmood" placeholder="Current Mood"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script> <!--  toggle password javascript -->
+    function togglePassword() {
+        var x = document.getElementById("psword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password"
+        }
+    }
+</script>
+{% endblock %}
