@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request, flash # request from Flask not Python library
 from flask import render_template
-import requests
+# import requests
 import pymysql # Python to connect to MySQL
 
 app = Flask(__name__)
@@ -8,6 +8,7 @@ app.secret_key = 'why_is_this_necessary'
 
 @app.route("/")
 def home():
+    # return "successful debug line 11"
     return render_template("home.html")
 
 @app.route("/create_account/", methods=['POST', 'GET'])
