@@ -14,7 +14,7 @@ View Account Results
 <body>
     <Title>View Account Results</Title>
     <p>View Account Results</p>
-    <p>Below is the account details we have recorded.</p>
+    <p>Below is the entire database.</p>
     <!--error-->
     {% if error %}
     <p class=error><strong>Error:</strong> {{ error }}</p>
@@ -29,7 +29,27 @@ View Account Results
             </ul>
         {% endif %}
     {% endwith %}
-    {{ results }} <br>
+    <br>
+    <table style="border: 1px solid black;">
+        <th>Primary ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Favorite Number</th>
+        <th>Favorite Element</th>
+        <th>Email Address</th>
+        <th>Current Mood</th>
+    {% for row in results %}
+        <tr style="border: 1px solid black;">
+        {% for element in row %}
+            <td>
+                {{ element }}
+            </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
     
     <a href="{{ url_for('create_account') }}">Return to Create Account</a>
 </body>

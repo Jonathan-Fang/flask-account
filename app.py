@@ -2,26 +2,24 @@ from flask import Flask, redirect, url_for, request, flash # request from Flask 
 from flask import render_template
 # import requests
 import pymysql # Python to connect to MySQL
-import sqlcreds # your SQL server creds
 
 app = Flask(__name__)
 app.secret_key = 'why_is_this_necessary'
+global totaldb
 
 @app.route("/")
 def home():
     # return "successful debug line 11"
     return render_template("home.html")
 
-@app.route("/create_account/", methods=['POST', 'GET'])
+@app.route("/create_account/", methods=['POST', 'GET']) # rendering the page itself is a get request, post for form submission; 
 def create_account():
     if request.method == 'POST':
         test_query = request.form
         # print(test_query) # debug successful 23:30
         print('printing test_query')
-        connectmysql_output = insertintodb(test_query)
-        # print(connectmysql_output) #debug
-        # print('printing connectmysql_output')
-        return redirect(url_for("view_account", results = connectmysql_output))
+        insertintodb(test_query)
+        return redirect(url_for("view_account")) # , results = connectmysql_output, dynamically generates URL
     else:
         return render_template("create_account.html", results = '')
 
@@ -30,11 +28,21 @@ def connectmysql(): # fname, lname, usrname, psword, favnum, favelement, email, 
     # ------------------------------------------------------------------- #
     # MAKE SURE YOUR DATABASE IS RUNNING AND DATABASE AND TABLE IS CREATED
     # ------------------------------------------------------------------- #
+
+    sqlcreds = open("sqlcreds.txt", "r")
+    credsls = []
+    for line in sqlcreds:
+        line = line.rstrip() # removes \n in text files
+        line = line.split('=') # creating 4 lists, two things in each
+        credsls.append(line[1])
+
+    # print(credsls) # debug
+    # print(type(credsls[0])) # debug type
     connection = pymysql.connect(
-        host = sqlcreds.host,
-        user = sqlcreds.user,
-        password = sqlcreds.password,
-        db = sqlcreds.db,
+        host = credsls[0], # asking for str, connecting to sql vs. sql call
+        user = credsls[1],
+        password = credsls[2],
+        db = credsls[3],
 
         # host='localhost',
         # user='root',
@@ -45,6 +53,7 @@ def connectmysql(): # fname, lname, usrname, psword, favnum, favelement, email, 
     return connection
 
 def insertintodb(test_query):
+    global totaldb
     connection = connectmysql()
     #i need python to somehow take user input and feed it to the server
     # first print input fields successfully in the console
@@ -77,7 +86,7 @@ def insertintodb(test_query):
             connection.commit()
             # print debug
             result = cursor.fetchall()
-            print(result)
+            # print(result)
             print('Added one account')
 
             cursor.execute('SELECT * FROM flask_table')
@@ -86,13 +95,17 @@ def insertintodb(test_query):
             print(result)
             print('Showing current database status in console')
 
+            # print(type(result[3][2])) # debug
+            # print(result[3][2]) # debug lname
+            # print(len(result)) # debug
+            totaldb = result
+
             return result #test_query, technically this is from user input, not the database
     # error handling
 
-@app.route("/view_account/")
+@app.route("/view_account/") # it's default doing a GET request to even render the page when the user sees it
 def view_account():
-    # view_results = request.args.get('results')
-    view_results = request.args.get('results')
+    view_results = totaldb
     print(view_results) # debug
     print('showing results in console')
     return render_template("view_account.html", results = view_results)
