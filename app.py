@@ -61,16 +61,8 @@ def insertintodb(test_query):
     email = test_query_list[6]
     currentmood = test_query_list[7]
 
-    # yaish = f"{fname} lol {lname} lol {username} lol {password} lol {favnum} lol {favelement} lol {email} lol {currentmood}" # how to use f strings with Jinja
-    # yaish = "{} l {} l {} l {} l {} l {} l {} l {}".format(fname, lname, username, password, favnum, favelement, email, currentmood) # format string
-    # yaish = "%s fname %s lname %s username %s password %s favnum %s favelement %s email %s currentmood" % (fname, lname, username, password, favnum, favelement, email, currentmood)
-    # print(yaish)
-
     insert_sql_query = f"INSERT INTO flask_table(fname, lname, username, password, favnum, favelement, email, currentmood) VALUES('{fname}', '{lname}', '{username}', '{password}', {favnum}, '{favelement}', '{email}', '{currentmood}')" # SQL wants quotes for strings, SQL thought it was a variable, Python thought it was string
-    # {fname}, {lname}, {username}, {password}, {favnum}, {favelement}, {email}, {currentmood} <-- f string
-    # \'fnameblah\', \'lnameblah\', \'usernameblah\', \'passwordblah\', 3, \'favelementblah\', \'emailblah\', \'currentmoodblah\'
-    # record = ('fnameblah', 'lnameblah', 'usernameblah', 'passwordblah', 3, 'favelementblah', 'emailblah', 'currentmoodblah') <-- this is the hardcoded one
-    # record = (fname, lname, usrname, psword, favnum, favelement, email, currentmood)
+    
     with connection: #with is a python thing
         with connection.cursor() as cursor:
             cursor.execute(insert_sql_query) # , record
