@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}
-Weather API
+View Account Results
 {% endblock %}
 {% block content %}
 <head>
@@ -14,6 +14,7 @@ Weather API
 <body>
     <Title>View Account Results</Title>
     <p>View Account Results</p>
+    <p>Below is the account details we have recorded.</p>
     <!--error-->
     {% if error %}
     <p class=error><strong>Error:</strong> {{ error }}</p>
@@ -29,16 +30,7 @@ Weather API
         {% endif %}
     {% endwith %}
     {{ results }} <br>
-    {# .. <!-- commenting out jinja -->
-    <table> 
-        {% for key, value in results.items() %} <!-- i don't really understand this -->
-            <tr>
-                <th> {{key}} </th>
-                <td> {{value}} </td>
-            </tr>
-        {% endfor %}
-    </table>
-    #}
+    
     <a href="{{ url_for('create_account') }}">Return to Create Account</a>
 </body>
 {% endblock %}
