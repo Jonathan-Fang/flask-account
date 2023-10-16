@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, request, flash # request from Flask 
 from flask import render_template
 # import requests
 import pymysql # Python to connect to MySQL
+import sqlcreds # your SQL server creds
 
 app = Flask(__name__)
 app.secret_key = 'why_is_this_necessary'
@@ -15,23 +16,30 @@ def home():
 def create_account():
     if request.method == 'POST':
         test_query = request.form
-        print(test_query) # debug successful 23:30
+        # print(test_query) # debug successful 23:30
         print('printing test_query')
         connectmysql_output = insertintodb(test_query)
-        print(connectmysql_output) #debug
-        print('printing connectmysql_output')
+        # print(connectmysql_output) #debug
+        # print('printing connectmysql_output')
         return redirect(url_for("view_account", results = connectmysql_output))
     else:
         return render_template("create_account.html", results = '')
 
 def connectmysql(): # fname, lname, usrname, psword, favnum, favelement, email, currentmood # this is a helper function, don't call them on their own, used to help other functions
     # connect to the database
+    # ------------------------------------------------------------------- #
     # MAKE SURE YOUR DATABASE IS RUNNING AND DATABASE AND TABLE IS CREATED
+    # ------------------------------------------------------------------- #
     connection = pymysql.connect(
-        host='localhost',
-        user='root',
-        password='Tgbmysqlr!', # hardcoding password, development vs. production, could query password
-        db='flask_database',
+        host = sqlcreds.host,
+        user = sqlcreds.user,
+        password = sqlcreds.password,
+        db = sqlcreds.db,
+
+        # host='localhost',
+        # user='root',
+        # password='Tgbmysqlr!', # hardcoding password, development vs. production, could query password
+        # db='flask_database',
     )
 
     return connection
@@ -50,9 +58,9 @@ def insertintodb(test_query):
     print(test_query_list)
     print('printing list')
     fname = test_query_list[0]
-    print(fname)
-    print('printing fname')
-    print(type(fname)) # debug fname var type
+    # print(fname)
+    # print('printing fname')
+    # print(type(fname)) # debug fname var type
     lname = test_query_list[1]
     username = test_query_list[2]
     password = test_query_list[3]
