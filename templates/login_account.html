@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+Login to Your Account
+{% endblock %}
+{% block content %}
+<head>
+    <style>
+        .div-login {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <title>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></title>
+    <div class="div-login">
+        <form method="post" action="login_acount.html">
+            <p>Login to your account.</p>
+            <input type="text" name="usernameemail" placeholder="Username or Email"><br>
+            <input type="text" name="password" placeholder="Password"><br>
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}

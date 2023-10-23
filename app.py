@@ -111,6 +111,14 @@ def view_account():
     return render_template("view_account.html", results = view_results)
     # need to render the information into here, start with string, can get table later
 
+@app.route("/login_account/")
+def login_account():
+    return render_template("login_account.html")
+
+@app.route("/profile/")
+def profile():
+    return render_template("profile.html")
+
 # main driver function
 if __name__ == '__main__':
 

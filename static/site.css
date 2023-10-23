@@ -44,3 +44,7 @@ li a:hover {
 .center-home {
     text-align: center;
 }
+
+button {
+    padding: 5px;
+}
