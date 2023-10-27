@@ -116,7 +116,7 @@ def login_account():
     
     return render_template("login_account.html")
 
-@app.route("/profile/", methods=['POST', 'GET'])
+@app.route("/profile/", methods=['GET'])
 def profile():
     if request.method =='GET':
         unsplash_image_url = unsplashapi() # run unsplashapi function
@@ -134,12 +134,7 @@ def unsplashapi():
 
 # unsplash api key https://api.unsplash.com/photos/?client_id=6gVpZ8_HFqUT_1GuKoNNvEjq3AmH92qK90n1qkRRD6I
 
-# unsplash api
-# access api
-# search via the element, 
-# simpler to preset it; but for dynamic, can search up the element one page, and then take the first one and render it as thumb width 200px
 # actually no, i want preset, and bonus can be cheese lol; preset, earth, fire, water, air, and if they choose something else, render cheese "you didn't choose any of the four elements, so you get cheese."
-# first, try to return a list of stuff
 
 # main driver function
 if __name__ == '__main__':

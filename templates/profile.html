@@ -3,13 +3,24 @@
 Your Profile
 {% endblock %}
 {% block content %}
+
+<head>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Tangerine">
+    <style>
+        favnum {
+            font-family: 'Tangerine', serif;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
 <title>user's Profile</title>
 
 Favorite Element
-Unsplash Image
-<img src="{{ elementurl }}" alt="Unsplash Image of {{ elementurl }}" width="400">
-Temporary Proof that images can show up here below
-<img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MTk1Mzl8MHwxfGFsbHx8fHx8fHx8fDE2OTg0MjY3MDF8&ixlib=rb-4.0.3&q=80&w=400" alt="Unsplash Image" width="400">
-Favorite Number
+Unsplash Image<br>
+<img src="{{ elementurl }}" alt="Unsplash Image of {{ elementurl }}" width="400"><br>
+Favorite Number<br>
+<div class="favnum" style="font-family: 'Tangerine', serif; font-size: 100px;">3 {{ favnum }}</div>
 
 {% endblock %}
