@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, request, flash # request from Flask not Python library
 from flask import render_template
-# import requests
+import requests # to call Unsplash API
 import pymysql # Python to connect to MySQL
 
 app = Flask(__name__)
@@ -113,11 +113,33 @@ def view_account():
 
 @app.route("/login_account/")
 def login_account():
+    
     return render_template("login_account.html")
 
-@app.route("/profile/")
+@app.route("/profile/", methods=['POST', 'GET'])
 def profile():
-    return render_template("profile.html")
+    if request.method =='GET':
+        unsplash_image_url = unsplashapi() # run unsplashapi function
+        return render_template("profile.html", elementurl = unsplash_image_url)
+        # return render_template("profile.html")
+    else:
+        return render_template("profile.html")
+
+def unsplashapi():
+    api_reply = requests.get('https://api.unsplash.com/photos/baked-bread-KaK2jp8ie8s/?client_id=6gVpZ8_HFqUT_1GuKoNNvEjq3AmH92qK90n1qkRRD6I') # get request
+    api_json = api_reply.json() # turn into json for python to read
+    unsplash_image_url = api_json["urls"]["small"] # find index for url
+    # print(unsplash_image_url) # debug
+    return unsplash_image_url
+
+# unsplash api key https://api.unsplash.com/photos/?client_id=6gVpZ8_HFqUT_1GuKoNNvEjq3AmH92qK90n1qkRRD6I
+
+# unsplash api
+# access api
+# search via the element, 
+# simpler to preset it; but for dynamic, can search up the element one page, and then take the first one and render it as thumb width 200px
+# actually no, i want preset, and bonus can be cheese lol; preset, earth, fire, water, air, and if they choose something else, render cheese "you didn't choose any of the four elements, so you get cheese."
+# first, try to return a list of stuff
 
 # main driver function
 if __name__ == '__main__':
