@@ -52,6 +52,7 @@ li a:hover {
 button {
     margin: 5 px;
     text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 input {
