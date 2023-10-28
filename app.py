@@ -17,7 +17,7 @@ def create_account():
     if request.method == 'POST':
         test_query = request.form
         # print(test_query) # debug successful 23:30
-        print('printing test_query')
+        # print('printing test_query')
         insertintodb(test_query)
         return redirect(url_for("view_account")) # , results = connectmysql_output, dynamically generates URL
     else:

@@ -9,4 +9,5 @@ CREATE TABLE flask_table (PrimaryID int not null auto_increment,
                         favelement varchar(15) not null, 
                         email varchar(30) not null, 
                         currentmood varchar(30), 
+                        createdtime datetime default CURRENT_TIMESTAMP,
                         primary key(PrimaryID));
