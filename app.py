@@ -116,7 +116,7 @@ def login_account():
     
     return render_template("login_account.html")
 
-@app.route("/profile/", methods=['GET'])
+@app.route("/profile/", methods=['POST','GET'])
 def profile():
     if request.method =='GET':
         unsplash_image_url = unsplashapi() # run unsplashapi function
