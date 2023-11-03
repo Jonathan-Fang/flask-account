@@ -64,8 +64,8 @@ def insertintodb(test_query):
     # do i need to loop through the list and get the values and spit it into the string?
     # convert test_query to list to index?
     test_query_list = list(test_query.values())
-    print(test_query_list)
-    print('printing list')
+    # print(test_query_list) # debug
+    # print('printing list') # debug
     fname = test_query_list[0]
     # print(fname)
     # print('printing fname')

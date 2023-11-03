@@ -3,15 +3,15 @@
 Login to Your Account
 {% endblock %}
 {% block content %}
-<body>
-    <title>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></title>
-    <div class="div-login">
-        <form method="post" action="login_account.html">
+<div class="login">
+    <fieldset>
+        <legend>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></legend>
+        <form method="post" action="profile.html"> <!-- login_account.html -->
             <p>Login to your account.</p>
-            <input type="text" name="usernameemail" placeholder="Username or Email"><br>
-            <input type="text" name="psword" placeholder="Password"><br>
-            <button type="submit">Login</button>
+            <input required type="text" name="usernameemail" placeholder="Username or Email"><br>
+            <input required type="text" name="psword" placeholder="Password"><br>
+            <button type="submit" name="login" value="login">Login</button>
         </form>
-    </div>
-</body>
+    </fieldset>
+</div>
 {% endblock %}

@@ -3,16 +3,6 @@
 View Account Results
 {% endblock %}
 {% block content %}
-<head>
-    <style>
-        p {text-align: center;}
-        button {text-align: center;}
-        div {text-align: center;}
-    </style>
-</head>
-
-<body>
-    <Title>View Account Results</Title>
     <p>View Account Results</p>
     <p>Below is the entire database.</p>
     <!--error-->
@@ -30,28 +20,31 @@ View Account Results
         {% endif %}
     {% endwith %}
     <br>
-    <table style="border: 1px solid black;">
-        <th>Primary ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Favorite Number</th>
-        <th>Favorite Element</th>
-        <th>Email Address</th>
-        <th>Current Mood</th>
-        <th>Created Time</th>
-    {% for row in results %}
-        <tr style="border: 1px solid black;">
-        {% for element in row %}
-            <td>
-                {{ element }}
-            </td>
+    <div class="viewaccount">
+        <table style="border: 1px solid black;">
+            <th>Primary ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Favorite Number</th>
+            <th>Favorite Element</th>
+            <th>Email Address</th>
+            <th>Current Mood</th>
+            <th>Created Time</th>
+        {% for row in results %}
+            <tr style="border: 1px solid black;">
+            {% for element in row %}
+                <td>
+                    {{ element }}
+                </td>
+            {% endfor %}
+            </tr>
         {% endfor %}
-        </tr>
-    {% endfor %}
-    </table>
+        </table>
+    </div>
     
     <a href="{{ url_for('create_account') }}">Return to Create Account</a>
+    <a href="{{ url_for('profile') }}">Continue to View Your Profile</a>
 </body>
 {% endblock %}

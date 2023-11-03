@@ -13,18 +13,20 @@
     color: inherit;
 }
 
-.navbar-brand {
+/* does navbar-brand do anything? */
+.navbar-brand { 
     font-size: 1.2em;
     font-weight: 600;
     padding: 10px 0px 10px 0px;
 }
 
+/* does navbar-item do anything? */
 .navbar-item {
     font-variant: small-caps;
     margin-left: 30px;
 }
 
-/* Body Content */
+/* Body Content, below navbar */
 
 .body-content {
     padding: 5px;
@@ -45,7 +47,7 @@ li a:hover {
     color:aqua;
 }
 
-.center-home {
+.center-home, p, title, div {
     text-align: center;
 }
 
@@ -53,24 +55,30 @@ button {
     margin: 5 px;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
 }
 
 input {
     margin: 5px;
 }
 
-p {
+.login {
     text-align: center;
+    width: 30%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-title {
+.createaccount {
     text-align: center;
+    width: 50%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-div {
-    text-align: center;
-}
-
-.div-login {
-    text-align: center;
+.viewaccount {
+    margin-left: auto;
+    margin-right: auto;
 }
