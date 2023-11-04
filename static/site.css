@@ -14,21 +14,21 @@
 }
 
 /* does navbar-brand do anything? */
-.navbar-brand { 
+/* .navbar-brand { 
     font-size: 1.2em;
     font-weight: 600;
     padding: 10px 0px 10px 0px;
-}
+} */
 
 /* does navbar-item do anything? */
-.navbar-item {
+/* .navbar-item {
     font-variant: small-caps;
     margin-left: 30px;
-}
+} */
 
 /* Body Content, below navbar */
 
-.body-content {
+body {
     padding: 5px;
     font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -47,7 +47,7 @@ li a:hover {
     color:aqua;
 }
 
-.center-home, p, title, div {
+.center-home, p, title, header, section {
     text-align: center;
 }
 
@@ -81,4 +81,21 @@ input {
 .viewaccount {
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Footer */
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem; /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; /* Footer height */
 }

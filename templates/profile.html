@@ -3,7 +3,6 @@
 Your Profile
 {% endblock %}
 {% block content %}
-
 <head>
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Tangerine">
@@ -14,19 +13,17 @@ Your Profile
         }
     </style>
 </head>
-
-<title>user's Profile</title>
-
-Favorite Element
-Unsplash Image<br>
-<img src="{{ elementurl }}" alt="Unsplash Image of {{ elementurl }}" width="400"><br>
-Favorite Number<br>
-<div class="favnum" style="font-family: 'Tangerine', serif; font-size: 100px;">3 {{ favnum }}</div>
-
-<div>
+<header>
+    <h1>user's Profile</h1>
+</header>
+<section>
+    Favorite Element
+    Unsplash Image<br>
+    <img src="{{ elementurl }}" alt="Unsplash Image of {{ elementurl }}" width="400"><br>
+    Favorite Number<br>
+    <div class="favnum" style="font-family: 'Tangerine', serif; font-size: 100px;">3 {{ favnum }}</div>
     <form method="post" action="profile.html">
         <button type="submit">Delete Account</button>
     </form>
-</div>
-
+</section>
 {% endblock %}

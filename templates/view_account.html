@@ -3,13 +3,16 @@
 View Account Results
 {% endblock %}
 {% block content %}
-    <p>View Account Results</p>
+<header>
+    <h1>View Account Results</h1>
     <p>Below is the entire database.</p>
-    <!--error-->
+</header>
+<section>
+    <!--flask jinja error-->
     {% if error %}
     <p class=error><strong>Error:</strong> {{ error }}</p>
     {% endif %}
-    <!--flash-->
+    <!--flask jinja flash-->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul class=flashes>
@@ -43,8 +46,8 @@ View Account Results
         {% endfor %}
         </table>
     </div>
-    
+
     <a href="{{ url_for('create_account') }}">Return to Create Account</a>
     <a href="{{ url_for('profile') }}">Continue to View Your Profile</a>
-</body>
+</section>
 {% endblock %}

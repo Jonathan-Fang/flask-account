@@ -2,30 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- practicing mobile styling-->
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
     </head>
 
     <body>
-        <div class="navbar">
-            <li><a href="{{ url_for('home') }}">
-                <img src="https://jonathanjfang.com/wp-content/uploads/2020/10/favicon-32x321-1.png?x83733" alt="Home" style="width:50px;height:50px;">
-            </a></li>
-            <li><a href="{{ url_for('login_account') }}">Login</a></li>
-            <li><a href="{{ url_for('create_account') }}">Create Account</a></li>
-            <li style="float:right"><a href="https://www.linkedin.com/in/jonathan-fang/" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn profile link" style="width:40px;height:40px;">
-            </a></li>
-            <li style="float:right"><a href="https://www.instagram.com/itsjonathanfang/" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn-icons-png.flaticon.com/512/2956/2956122.png" alt="Instagram" style="width:40px;height:40px;">
-            </a></li>
-        </div>
-
-        <div class="body-content">
-            {% block content %}
-            {% endblock %}
-            <hr/>
-            <footer>
+        <div id="page-container">
+            <div id="content-wrap">
+                <nav class="navbar">
+                    <li><a href="{{ url_for('home') }}">
+                        <img src="https://jonathanjfang.com/wp-content/uploads/2020/10/favicon-32x321-1.png?x83733" alt="Home" style="width:50px;height:50px;">
+                    </a></li>
+                    <li><a href="{{ url_for('login_account') }}">Login</a></li>
+                    <li><a href="{{ url_for('create_account') }}">Create Account</a></li>
+                    <li style="float:right"><a href="https://www.linkedin.com/in/jonathan-fang/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn profile link" style="width:40px;height:40px;">
+                    </a></li>
+                    <li style="float:right"><a href="https://www.instagram.com/itsjonathanfang/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2956/2956122.png" alt="Instagram" style="width:40px;height:40px;">
+                    </a></li>
+                </nav>
+                {% block content %}
+                {% endblock %}
+            </div>
+            <footer id="footer">
                 <p>©Jonathan Fang 2021 - 2023</p>
             </footer>
         </div>

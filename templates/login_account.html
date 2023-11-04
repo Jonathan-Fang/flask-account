@@ -3,7 +3,7 @@
 Login to Your Account
 {% endblock %}
 {% block content %}
-<div class="login">
+<section class="login">
     <fieldset>
         <legend>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></legend>
         <form method="post" action="profile.html"> <!-- login_account.html -->
@@ -13,5 +13,5 @@ Login to Your Account
             <button type="submit" name="login" value="login">Login</button>
         </form>
     </fieldset>
-</div>
+</section>
 {% endblock %}

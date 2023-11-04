@@ -3,8 +3,10 @@
 Create Account
 {% endblock %}
 {% block content %}
-<p>Create Account: Deliverable for Eddy, September 19, 2023</p>
-<div class="createaccount">
+<header>
+    <p>Create Account: Deliverable for Eddy, September 19, 2023</p>
+</header>
+<section class="createaccount">
     <fieldset>
         <legend>Fill in the information below to create an account</legend>
         <form method="post" action="/create_account/">
@@ -20,5 +22,5 @@ Create Account
             <button type="submit" name="createaccount" value="createaccount">Submit</button>
         </form>
     </fieldset>
-</div>
+</section>
 {% endblock %}
