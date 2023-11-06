@@ -3,24 +3,41 @@
 Create Account
 {% endblock %}
 {% block content %}
-<header>
-    <p>Create Account: Deliverable for Eddy, September 19, 2023</p>
-</header>
 <section class="createaccount">
-    <fieldset>
-        <legend>Fill in the information below to create an account</legend>
-        <form method="post" action="/create_account/">
-            <input type="text" name="fname" placeholder="First name">
-            <input type="text" name="lname" placeholder="Last name"><br><br>
-            <input type="text" name="usrname" placeholder="Username">
-            <input type="password" name="psword" id="psword" placeholder="Password"><br>
-            <input type="checkbox" onclick="togglePassword()">Toggle Password<br><br>
-            <input required type="number" name="favnum" placeholder="Favorite Number">
-            <input required type="text" name="favelement" placeholder="Favorite Element"><br><br>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="currentmood" placeholder="Current Mood"><br><br>
-            <button type="submit" name="createaccount" value="createaccount">Submit</button>
-        </form>
-    </fieldset>
+    <form method="post" action="/create_account/">
+        <fieldset>
+            <legend>Fill in the information below to create an account</legend>
+            <label for="fname">First Name *
+                <input type="text" name="fname" id="fname" placeholder="Enter first name" required>
+            </label>
+            <label for="lname">Last Name *
+                <input type="text" name="lname" id="lname" placeholder="Enter last name" required>
+            </label>
+            <label for="usrname">Username *
+                <input type="text" name="usrname" id="usrname" placeholder="Create username" required>
+            </label>
+            <label for="psword">Password *
+                <input type="password" name="psword" id="psword" placeholder="Create password" required>
+            </label>
+            <label for="togglepassword" class="inline">
+                <input class="inline" type="checkbox" id="togglepassword" onclick="togglePassword()">Toggle Password
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="favnum">Favorite Number *
+                <input type="number" name="favnum" id="favnum" placeholder="Enter favorite Number" required>
+            </label>
+            <label for="favelement">Favorite Element *
+                <input type="text" name="favelement" id="favelement" placeholder="Enter favorite Element" required>
+            </label>
+            <label for="email">Email *
+                <input type="email" name="email" id="email" placeholder="Enter email" required>
+            </label>
+            <label for="currentmood">Current Mood
+                <input type="text" name="currentmood" id="currentmood" placeholder="Enter current Mood">
+            </label>
+            <button type="submit" name="createaccount" id="createaccount" value="createaccount">Submit</button>
+        </fieldset>
+    </form>
 </section>
 {% endblock %}

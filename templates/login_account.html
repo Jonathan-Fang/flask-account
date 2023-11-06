@@ -4,14 +4,13 @@ Login to Your Account
 {% endblock %}
 {% block content %}
 <section class="login">
-    <fieldset>
-        <legend>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></legend>
-        <form method="post" action="profile.html"> <!-- login_account.html -->
-            <p>Login to your account.</p>
-            <input required type="text" name="usernameemail" placeholder="Username or Email"><br>
-            <input required type="text" name="psword" placeholder="Password"><br>
+    <form method="post" action="profile.html"> <!-- login_account.html -->
+        <fieldset>
+            <legend>Login or <a href="{{ url_for('create_account') }}">Create an Account</a></legend>
+            <input required type="text" name="usernameemail" id="usernameemail" placeholder="Username or Email"><br>
+            <input required type="text" name="psword" id="psword" placeholder="Password"><br>
             <button type="submit" name="login" value="login">Login</button>
-        </form>
-    </fieldset>
+        </fieldset>
+    </form>
 </section>
 {% endblock %}
