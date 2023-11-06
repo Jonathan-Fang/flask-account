@@ -14,19 +14,6 @@
     color: inherit;
 }
 
-/* does navbar-brand do anything? */
-/* .navbar-brand { 
-    font-size: 1.2em;
-    font-weight: 600;
-    padding: 10px 0px 10px 0px;
-} */
-
-/* does navbar-item do anything? */
-/* .navbar-item {
-    font-variant: small-caps;
-    margin-left: 30px;
-} */
-
 /* Body Content, below navbar */
 
 body {
