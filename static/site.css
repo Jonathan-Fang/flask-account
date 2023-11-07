@@ -41,7 +41,7 @@ section {
 }
 
 button {
-    margin: 5 px;
+    margin: 5px auto;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
